@@ -1,30 +1,30 @@
 ﻿CREATE OR ALTER PROCEDURE RunningProcedure
 AS
 BEGIN
-    -- Enviar mensagem parcial (progresso)
+    -- Send partial message (progress)
     RAISERROR('Process beginning...', 0, 1) WITH NOWAIT;
 
-    -- Simula uma operação demorada
-    WAITFOR DELAY '00:00:05';
+    -- Simulate a long-running operation
+    WAITFOR DELAY '00:00:01';
 
-    -- Enviar outra mensagem parcial
+    -- Send another partial message
     RAISERROR('25%% of process...', 0, 1) WITH NOWAIT;
 
-    -- Simula mais uma operação demorada
-    WAITFOR DELAY '00:00:05';
+    -- Simulate another long-running operation
+    WAITFOR DELAY '00:00:01';
 
-    -- Enviar outra mensagem parcial
+    -- Send another partial message
     RAISERROR('50%% of process...', 0, 1) WITH NOWAIT;
 
-    -- Simula mais uma operação demorada
-    WAITFOR DELAY '00:00:05';
-   
-    -- Enviar outra mensagem parcial
+    -- Simulate another long-running operation
+    WAITFOR DELAY '00:00:01';
+
+    -- Send another partial message
     RAISERROR('75%%... of process', 0, 1) WITH NOWAIT;
 
-    -- Simula mais uma operação demorada
-    WAITFOR DELAY '00:00:05';   
+    -- Simulate another long-running operation
+    WAITFOR DELAY '00:00:01';
 
-    -- Enviar mensagem final
+    -- Send final message
     RAISERROR('Process finished!', 0, 1) WITH NOWAIT;
 END;

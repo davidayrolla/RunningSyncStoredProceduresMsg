@@ -13,7 +13,7 @@ class Program
         {
             try
             {
-                // Registrar o evento para capturar as mensagens
+                // Register the event to capture messages
                 connection.InfoMessage += new SqlInfoMessageEventHandler(OnInfoMessage);
 
                 connection.Open();
@@ -24,7 +24,7 @@ class Program
 
                     Console.WriteLine("Calling the stored procedure...");
 
-                    // Executar a stored procedure (essa chamada é síncrona).
+                    // Execute the stored procedure
                     command.ExecuteNonQuery();
 
                     Console.WriteLine("Stored procedure finished.");
@@ -32,15 +32,15 @@ class Program
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Erro: " + ex.Message);
+                Console.WriteLine("Error: " + ex.Message);
             }
         }
     }
 
-    // Manipulador de eventos para capturar mensagens enviadas com RAISERROR ou PRINT
+    // Event handler to capture messages sent with RAISERROR or PRINT
     static void OnInfoMessage(object sender, SqlInfoMessageEventArgs e)
     {
-        // Exibir as mensagens de progresso da stored procedure
+        // Display the progress messages from the stored procedure
         Console.WriteLine("Message from SQL Server: " + e.Message);
     }
 }
